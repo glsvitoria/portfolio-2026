@@ -33,9 +33,7 @@ export function Hero() {
 					>
 						<span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
 						<span className="text-sm text-muted-foreground">
-							{t.hero.greeting === 'Olá, eu sou'
-								? 'Disponível para novos projetos'
-								: 'Available for new projects'}
+							{t.hero.available}
 						</span>
 					</motion.div>
 
@@ -86,7 +84,7 @@ export function Hero() {
 							asChild
 							variant="outline"
 							size="lg"
-							className="border-border hover:bg-secondary/50 px-8"
+							className="border-border hover:bg-secondary/50 hover:text-white px-8"
 						>
 							<a href="#contact">{t.hero.ctaSecondary}</a>
 						</Button>

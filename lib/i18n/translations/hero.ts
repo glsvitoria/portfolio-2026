@@ -1,16 +1,18 @@
-import { Translation } from "./types";
+import { Translation } from './types'
 
 interface HeroTranslations extends Translation<{
-  greeting: string;
-  name: string;
-  role: string;
-  description: string;
-  cta: string;
-  ctaSecondary: string;
+	available: string
+	greeting: string
+	name: string
+	role: string
+	description: string
+	cta: string
+	ctaSecondary: string
 }> {}
 
 export const heroTranslations: HeroTranslations = {
 	pt: {
+    available: 'Disponível para novos projetos',
 		greeting: 'Olá, eu sou',
 		name: 'Guilherme Vitória',
 		role: 'Software Engineer',
@@ -20,6 +22,7 @@ export const heroTranslations: HeroTranslations = {
 		ctaSecondary: 'Entrar em Contato',
 	},
 	en: {
+    available: 'Available for new projects',
 		greeting: "Hi, I'm",
 		name: 'Guilherme Vitória',
 		role: 'Software Engineer',
