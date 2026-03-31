@@ -12,7 +12,7 @@ export function Experience() {
 	const isInView = useInView(ref, { once: true, margin: '-100px' })
 
 	return (
-		<section id="experience" className="py-32 relative overflow-hidden">
+		<section id="experience" className="py-16 md:py-32 relative overflow-hidden">
 			<div className="absolute top-1/2 left-0 w-96 h-96 bg-magenta/10 rounded-full blur-3xl -translate-y-1/2" />
 			<div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan/10 rounded-full blur-3xl" />
 
@@ -54,8 +54,8 @@ export function Experience() {
 								<div
 									className={`absolute top-0 w-4 h-4 rounded-full bg-linear-to-br from-cyan to-magenta ${
 										index % 2 === 0
-											? 'left-0 md:left-1/2 md:-translate-x-1/2'
-											: 'left-0 md:left-1/2 md:-translate-x-1/2'
+											? '-left-1.5 md:left-1/2 md:-translate-x-1/2'
+											: '-left-1.5 md:left-1/2 md:-translate-x-1/2'
 									}`}
 								>
 									<div className="absolute inset-0 rounded-full bg-linear-to-br from-cyan to-magenta animate-ping opacity-30" />

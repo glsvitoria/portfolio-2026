@@ -36,7 +36,7 @@ export function About() {
 	]
 
 	return (
-		<section id="about" className="py-32 relative overflow-hidden">
+		<section id="about" className="p-16 md:py-32 relative overflow-hidden">
 			<div className="absolute top-0 left-1/4 w-64 h-64 bg-cyan/10 rounded-full blur-3xl" />
 			<div className="absolute bottom-0 right-1/4 w-64 h-64 bg-magenta/10 rounded-full blur-3xl" />
 

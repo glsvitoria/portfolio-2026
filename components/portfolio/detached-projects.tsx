@@ -137,14 +137,20 @@ function ImmersiveProjectCard({
 					}}
 				>
 					<div className="max-w-4xl w-full text-center">
-						<motion.div className="mb-6 inline-flex items-center gap-3">
-							<span className="px-4 py-1.5 text-xs font-semibold uppercase tracking-widest rounded-full bg-cyan/20 text-cyan border border-cyan/30">
-								{project.category}
-							</span>
-							<span className="text-sm text-muted-foreground font-medium">
+						<div className="mb-8 flex items-center justify-center gap-4">
+							<div className="flex items-center gap-2">
+								<span className="w-1.5 h-1.5 rounded-full bg-cyan shadow-[0_0_10px_rgba(0,255,247,0.8)]" />
+								<span className="text-xs font-bold uppercase tracking-[0.3em] text-cyan/90">
+									{project.category}
+								</span>
+							</div>
+
+							<span className="h-4 w-px bg-border/40" />
+
+							<span className="text-xs font-mono text-muted-foreground/60 tracking-widest">
 								{project.year}
 							</span>
-						</motion.div>
+						</div>
 
 						<h3 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance leading-tight">
 							{content.title}
@@ -310,6 +316,11 @@ export function DetachedProjects() {
 								key={index}
 								className="relative w-3 h-3 rounded-full border-2 border-foreground/30 transition-colors"
 								style={{
+									opacity: useTransform(
+										scrollYProgress,
+										[0, 0.05, 0.95, 1],
+										[0, 1, 1, 0],
+									),
 									backgroundColor: useTransform(
 										scrollYProgress,
 										[

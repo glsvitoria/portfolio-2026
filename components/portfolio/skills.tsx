@@ -8,6 +8,7 @@ import {
 	useSpring,
 	useTransform,
 } from 'framer-motion'
+import Image from 'next/image'
 import { useRef, useState, MouseEvent } from 'react'
 
 type SkillSize = 'large' | 'medium' | 'small'
@@ -15,7 +16,7 @@ type Category = 'frontend' | 'backend' | 'tools'
 
 interface Skill {
 	name: string
-	icon: string
+	iconUrl: string
 	size: SkillSize
 	category: Category
 	description?: boolean
@@ -25,14 +26,14 @@ interface Skill {
 const skills: Skill[] = [
 	{
 		name: 'React',
-		icon: '⚛',
+		iconUrl: 'https://skillicons.dev/icons?i=react',
 		size: 'medium',
 		category: 'frontend',
 		brandColor: '#61DAFB',
 	},
 	{
 		name: 'Next.js',
-		icon: '▲',
+		iconUrl: 'https://skillicons.dev/icons?i=nextjs',
 		size: 'large',
 		category: 'frontend',
 		description: true,
@@ -40,7 +41,7 @@ const skills: Skill[] = [
 	},
 	{
 		name: 'TypeScript',
-		icon: 'TS',
+		iconUrl: 'https://skillicons.dev/icons?i=typescript',
 		size: 'large',
 		category: 'tools',
 		description: true,
@@ -48,84 +49,91 @@ const skills: Skill[] = [
 	},
 	{
 		name: 'Node.js',
-		icon: '⬢',
+		iconUrl: 'https://skillicons.dev/icons?i=nodejs',
 		size: 'medium',
 		category: 'backend',
 		brandColor: '#539E43',
 	},
 	{
 		name: 'Tailwind CSS',
-		icon: '🎨',
+		iconUrl: 'https://skillicons.dev/icons?i=tailwindcss',
 		size: 'medium',
 		category: 'frontend',
 		brandColor: '#06B6D4',
 	},
 	{
 		name: 'Prisma',
-		icon: '◭',
+		iconUrl: 'https://skillicons.dev/icons?i=prisma',
 		size: 'medium',
 		category: 'backend',
 		brandColor: '#2D3748',
 	},
 	{
 		name: 'PostgreSQL',
-		icon: '🐘',
+		iconUrl: 'https://skillicons.dev/icons?i=postgresql',
 		size: 'medium',
 		category: 'backend',
 		brandColor: '#336791',
 	},
 	{
-		name: 'REST APIs',
-		icon: '🔗',
+		name: 'Express',
+		iconUrl: 'https://skillicons.dev/icons?i=express',
 		size: 'medium',
 		category: 'backend',
 		brandColor: '#00D8FF',
 	},
 	{
 		name: 'Git',
-		icon: '⎇',
+		iconUrl: 'https://skillicons.dev/icons?i=git',
 		size: 'small',
 		category: 'tools',
 		brandColor: '#F05032',
 	},
 	{
 		name: 'Docker',
-		icon: '🐳',
+		iconUrl: 'https://skillicons.dev/icons?i=docker',
 		size: 'small',
 		category: 'tools',
 		brandColor: '#2496ED',
 	},
 	{
 		name: 'Figma',
-		icon: '🎯',
+		iconUrl: 'https://skillicons.dev/icons?i=figma',
 		size: 'small',
 		category: 'tools',
 		brandColor: '#F24E1E',
 	},
 	{
 		name: 'Vercel',
-		icon: '▲',
+		iconUrl: 'https://skillicons.dev/icons?i=vercel',
 		size: 'small',
 		category: 'tools',
 		brandColor: '#FFFFFF',
 	},
 	{
 		name: 'JavaScript',
-		icon: 'JS',
+		iconUrl: 'https://skillicons.dev/icons?i=js',
 		size: 'small',
 		category: 'tools',
 		brandColor: '#F7DF1E',
 	},
 	{
-		name: 'HTML/CSS',
-		icon: '🌐',
+		name: 'CSS',
+		iconUrl: 'https://skillicons.dev/icons?i=css',
+		size: 'small',
+		category: 'frontend',
+		brandColor: '#1572B6',
+	},
+	{
+		name: 'HTML',
+		iconUrl: 'https://skillicons.dev/icons?i=html',
 		size: 'small',
 		category: 'frontend',
 		brandColor: '#E34F26',
 	},
 	{
 		name: 'Nest.js',
-		icon: 'Ne',
+		iconUrl: 'https://skillicons.dev/icons?i=nest',
 		size: 'large',
 		description: true,
 		category: 'backend',
@@ -222,7 +230,7 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
 
 			<div className="relative z-10 h-full flex flex-col">
 				<motion.div
-					className="text-3xl md:text-4xl mb-4 w-fit"
+					className="text-3xl md:text-4xl mb-4 w-8 h-8 md:w-16 md:h-16 flex items-center"
 					style={{
 						color: isHovered ? skill.brandColor : 'currentColor',
 						textShadow: isHovered ? `0 0 20px ${skill.brandColor}50` : 'none',
@@ -230,7 +238,7 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
 					animate={{ scale: isHovered ? 1.1 : 1 }}
 					transition={{ duration: 0.2 }}
 				>
-					{skill.icon}
+					<Image width={64} height={64} src={skill.iconUrl!} alt={skill.name} />
 				</motion.div>
 
 				<h3
@@ -247,7 +255,7 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
 				</h3>
 
 				{skill.size === 'large' && skill.description && (
-					<p className="mt-3 text-muted-foreground text-sm md:text-base leading-relaxed grow">
+					<p className="mt-3 text-muted-foreground hidden md:block md:text-base leading-relaxed grow">
 						{t.skills.technologies[skill.name] || 'Descrição não disponível.'}
 					</p>
 				)}
@@ -296,8 +304,27 @@ export function Skills() {
 		return order[a.size] - order[b.size]
 	})
 
+	const categoryStyles: Record<string, { active: string; hover: string }> = {
+		all: {
+			active: 'bg-cyan text-background shadow-cyan/40 border-cyan',
+			hover: 'hover:border-cyan/60 hover:text-cyan',
+		},
+		frontend: {
+			active: 'bg-cyan text-background shadow-cyan/40 border-cyan',
+			hover: 'hover:border-cyan/60 hover:text-cyan',
+		},
+		backend: {
+			active: 'bg-magenta text-background shadow-magenta/40 border-magenta',
+			hover: 'hover:border-magenta/60 hover:text-magenta',
+		},
+		tools: {
+			active: 'bg-red-glow text-background shadow-red-glow/40 border-red-glow',
+			hover: 'hover:border-red-glow/60 hover:text-red-glow',
+		},
+	}
+
 	return (
-		<section id="skills" className="py-32 relative overflow-hidden">
+		<section id="skills" className="p-16 md:py-32 relative overflow-hidden">
 			<div className="absolute inset-0 bg-linear-to-b from-background via-secondary/20 to-background" />
 
 			<div className="container mx-auto px-6 relative" ref={ref}>
@@ -326,27 +353,34 @@ export function Skills() {
 						transition={{ duration: 0.6, delay: 0.2 }}
 						className="flex flex-wrap justify-center gap-3 mb-12"
 					>
-						{(['all', 'frontend', 'backend', 'tools'] as const).map((cat) => (
-							<button
-								key={cat}
-								onClick={() => setActiveCategory(cat)}
-								className={`
-                  px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
-                  ${
-										activeCategory === cat
-											? 'bg-cyan text-background shadow-lg shadow-cyan/30'
-											: 'glass text-muted-foreground hover:text-foreground hover:border-white/20'
-									}
-                `}
-							>
-								{cat === 'all' ? t.skills.all : categoryLabels[cat as Category]}
-							</button>
-						))}
+						{(['all', 'frontend', 'backend', 'tools'] as const).map((cat) => {
+							const isActive = activeCategory === cat
+							const style = categoryStyles[cat]
+
+							return (
+								<button
+									key={cat}
+									onClick={() => setActiveCategory(cat)}
+									className={`
+          px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border transition-all duration-300
+          ${
+						isActive
+							? `${style.active} shadow-lg scale-105`
+							: `glass text-muted-foreground border-transparent ${style.hover}`
+					}
+        `}
+								>
+									{cat === 'all'
+										? t.skills.all
+										: categoryLabels[cat as Category]}
+								</button>
+							)
+						})}
 					</motion.div>
 
 					<motion.div
 						layout
-						className="relative grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-fr"
+						className="relative grid sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 auto-rows-fr"
 					>
 						{sortedSkills.map((skill, index) => (
 							<SkillCard key={skill.name} skill={skill} index={index} />

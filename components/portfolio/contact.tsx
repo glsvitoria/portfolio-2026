@@ -6,7 +6,6 @@ import {
 	MessageCircle,
 	Github,
 	Linkedin,
-	Instagram,
 	ArrowUpRight,
 } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n/language-context'
@@ -24,17 +23,12 @@ export function Contact() {
 			href: process.env.NEXT_PUBLIC_LINKEDIN_URL,
 			label: 'LinkedIn',
 		},
-		{
-			icon: Instagram,
-			href: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
-			label: 'Instagram',
-		},
 	]
 
 	return (
 		<section
 			id="contact"
-			className="py-32 relative overflow-hidden bg-background"
+			className="p-16 md:py-32 relative overflow-hidden bg-background"
 		>
 			<div className="container mx-auto px-6 relative z-10">
 				<div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
