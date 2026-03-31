@@ -166,24 +166,28 @@ function ImmersiveProjectCard({
 						</div>
 
 						<div className="flex items-center justify-center gap-4">
-							<a
-								href={project.liveUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-accent-foreground font-semibold hover:bg-cyan/90 transition-all hover:scale-105 shadow-lg shadow-cyan/20"
-							>
-								<ExternalLink className="size-5" />
-								{t.projects.viewProject}
-							</a>
-							<a
-								href={project.githubUrl}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-border hover:border-foreground/50 font-semibold transition-all hover:scale-105 backdrop-blur-sm"
-							>
-								<Github className="size-5" />
-								{t.projects.viewCode}
-							</a>
+							{project.liveUrl && (
+								<a
+									href={project.liveUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-accent-foreground font-semibold hover:bg-cyan/90 transition-all hover:scale-105 shadow-lg shadow-cyan/20"
+								>
+									<ExternalLink className="size-5" />
+									{t.projects.viewProject}
+								</a>
+							)}
+							{project.githubUrl && (
+								<a
+									href={project.githubUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-border hover:border-foreground/50 font-semibold transition-all hover:scale-105 backdrop-blur-sm"
+								>
+									<Github className="size-5" />
+									{t.projects.viewCode}
+								</a>
+							)}
 						</div>
 					</div>
 				</motion.div>
