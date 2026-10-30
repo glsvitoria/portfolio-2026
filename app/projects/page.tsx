@@ -1,7 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, ArrowLeft, Filter } from 'lucide-react'
+import {
+	ExternalLink,
+	Github,
+	ArrowLeft,
+	Filter,
+	Apple,
+	Play,
+} from 'lucide-react'
 import { allProjects, type Project } from '@/lib/projects-data'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -153,6 +160,30 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 				transition={{ duration: 0.2 }}
 				className="absolute bottom-6 right-6 flex gap-2"
 			>
+				{project.appStoreUrl && (
+					<a
+						href={project.appStoreUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={(e) => e.stopPropagation()}
+						className="w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:text-cyan hover:border-cyan/50 transition-colors"
+						aria-label={t.projects.viewAppStore}
+					>
+						<Apple className="size-4" />
+					</a>
+				)}
+				{project.playStoreUrl && (
+					<a
+						href={project.playStoreUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={(e) => e.stopPropagation()}
+						className="w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:text-cyan hover:border-cyan/50 transition-colors"
+						aria-label={t.projects.viewPlayStore}
+					>
+						<Play className="size-4" />
+					</a>
+				)}
 				{project.liveUrl && (
 					<a
 						href={project.liveUrl}

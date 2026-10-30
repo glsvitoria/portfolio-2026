@@ -1,7 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, ArrowLeft, Calendar, Tag } from 'lucide-react'
+import {
+	ExternalLink,
+	Github,
+	ArrowLeft,
+	Calendar,
+	Tag,
+	Apple,
+	Play,
+} from 'lucide-react'
 import { allProjects } from '@/lib/projects-data'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -144,6 +152,30 @@ export default function ProjectDetailPage({
 						transition={{ duration: 0.6, delay: 0.3 }}
 						className="flex flex-wrap gap-4 mb-16"
 					>
+						{project.appStoreUrl && (
+							<Button asChild size="lg" className="group">
+								<a
+									href={project.appStoreUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Apple className="mr-2 size-5" />
+									{t.projects.viewAppStore}
+								</a>
+							</Button>
+						)}
+						{project.playStoreUrl && (
+							<Button asChild variant="outline" size="lg" className="group">
+								<a
+									href={project.playStoreUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<Play className="mr-2 size-5" />
+									{t.projects.viewPlayStore}
+								</a>
+							</Button>
+						)}
 						{project.liveUrl && (
 							<Button asChild size="lg" className="group">
 								<a

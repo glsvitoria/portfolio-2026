@@ -23,10 +23,25 @@ export const experienceTranslations: ExperiencesTranslations = {
 		description: 'A journey of continuous learning and growth as a developer.',
 		data: [
 			{
+				company: 'Doji',
+				description:
+					'Development of DojiCheck, the mobile app that runs automated hardware diagnostics (biometrics, sensors, battery, connectivity, touch, and more) to grade devices in Doji\'s trade-in flow. Work across the React Native/Expo app, end-to-end tests, observability, and the iOS and Android release pipeline.',
+				endDate: 'Present',
+				role: 'Software Engineer',
+				startDate: 'June 2026',
+				technologies: [
+					'React Native',
+					'Expo',
+					'TypeScript',
+					'Datadog',
+					'Amplitude',
+				],
+			},
+			{
 				company: 'Blue Saúde',
 				description:
 					'Technical leadership of multidisciplinary teams in the development of scalable SaaS products. Responsible for end-to-end fullstack architecture, code standards definition, and implementation of real-time systems with WebSockets for high performance.',
-				endDate: 'Present',
+				endDate: 'May 2026',
 				role: 'Tech Lead',
 				startDate: 'April 2025',
 				technologies: [
@@ -94,10 +109,25 @@ export const experienceTranslations: ExperiencesTranslations = {
 			'Uma jornada de aprendizado contínuo e evolução como desenvolvedor.',
 		data: [
 			{
+				company: 'Doji',
+				description:
+					'Desenvolvimento do DojiCheck, app mobile que executa diagnósticos automatizados de hardware (biometria, sensores, bateria, conectividade, touch e mais) para avaliar aparelhos no fluxo de trade-in da Doji. Atuação no app React Native/Expo, testes end-to-end, observabilidade e pipeline de publicação para iOS e Android.',
+				endDate: 'Presente',
+				role: 'Software Engineer',
+				startDate: 'Junho 2026',
+				technologies: [
+					'React Native',
+					'Expo',
+					'TypeScript',
+					'Datadog',
+					'Amplitude',
+				],
+			},
+			{
 				company: 'Blue Saúde',
 				description:
 					'Liderança técnica de times multidisciplinares no desenvolvimento de produtos SaaS escaláveis. Responsável pela arquitetura fullstack ponta a ponta, definição de padrões de código e implementação de sistemas real-time com WebSockets para alta performance.',
-				endDate: 'Presente',
+				endDate: 'Maio 2026',
 				role: 'Tech Lead',
 				startDate: 'Abril 2025',
 				technologies: [

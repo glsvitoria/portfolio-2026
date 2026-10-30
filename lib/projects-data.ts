@@ -4,6 +4,8 @@ export interface Project {
 	technologies: string[]
 	liveUrl?: string
 	githubUrl?: string
+	appStoreUrl?: string
+	playStoreUrl?: string
 	featured: boolean
 	category: string
 	year: string
@@ -67,21 +69,25 @@ export const projects: Project[] = [
 		githubUrl: 'https://github.com/glsvitoria/front-mk-motobox',
 	},
 	{
-		id: 'audit-log',
+		id: 'dojicheck',
 		featured: true,
     detach: true,
-		category: 'Backend',
+		category: 'Mobile',
 		year: '2026',
+		image: '/dojicheck.png',
 		technologies: [
-			'Nest.js',
-			'PostgreSQL',
-			'Prisma',
-			'Vitest',
-			'Zod',
+			'React Native',
+			'Expo',
 			'TypeScript',
-			'Docker',
+			'NativeWind',
+			'React Query',
+			'Jest',
+			'Maestro',
+			'EAS',
 		],
-		githubUrl: 'https://github.com/glsvitoria/audit-log',
+		appStoreUrl: 'https://apps.apple.com/app/id6763075570',
+		playStoreUrl:
+			'https://play.google.com/store/apps/details?id=com.doji.dojicheck',
 	},
 	{
 		id: 'blue-saude',

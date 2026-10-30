@@ -7,7 +7,7 @@ import {
 	useScroll,
 	useTransform,
 } from 'framer-motion'
-import { ExternalLink, Github, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight, Apple, Play } from 'lucide-react'
 import { detachedProjects } from '@/lib/projects-data'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
@@ -171,7 +171,29 @@ function ImmersiveProjectCard({
 							))}
 						</div>
 
-						<div className="flex items-center justify-center gap-4">
+						<div className="flex flex-wrap items-center justify-center gap-4">
+							{project.appStoreUrl && (
+								<a
+									href={project.appStoreUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-cyan text-accent-foreground font-semibold hover:bg-cyan/90 transition-all hover:scale-105 shadow-lg shadow-cyan/20"
+								>
+									<Apple className="size-5" />
+									{t.projects.viewAppStore}
+								</a>
+							)}
+							{project.playStoreUrl && (
+								<a
+									href={project.playStoreUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-border hover:border-foreground/50 font-semibold transition-all hover:scale-105 backdrop-blur-sm"
+								>
+									<Play className="size-5" />
+									{t.projects.viewPlayStore}
+								</a>
+							)}
 							{project.liveUrl && (
 								<a
 									href={project.liveUrl}

@@ -19,6 +19,8 @@ interface ProjectsTranslations extends Translation<{
 	viewDetails: string
 	ariaLive: string
 	ariaGithub: string
+	viewAppStore: string
+	viewPlayStore: string
 	data: {
 		[key: string]: {
 			title: string
@@ -50,6 +52,8 @@ export const projectsTranslations: ProjectsTranslations = {
 		viewDetails: 'View details',
 		ariaLive: 'See live project',
 		ariaGithub: 'See code on GitHub',
+		viewAppStore: 'App Store',
+		viewPlayStore: 'Google Play',
 		data: {
 			'qualifica-bem': {
 				title: 'Qualifica Bem',
@@ -71,12 +75,12 @@ export const projectsTranslations: ProjectsTranslations = {
 				longDescription:
 					'Robust platform combining Next.js and Strapi. It allows real-time stock management with ISR for instant loading.',
 			},
-			'audit-log': {
-				title: 'Audit Log',
+			dojicheck: {
+				title: 'DojiCheck',
 				description:
-					'Centralized API for corporate event logging and monitoring.',
+					'Mobile app for automated hardware diagnostics in device trade-ins.',
 				longDescription:
-					'Specialized action traceability service designed to ensure log integrity through a scalable infrastructure.',
+					'React Native/Expo app that guides the user through a sequence of functional tests — biometrics, proximity sensor, charging port, touch screen, battery health, Wi-Fi, Bluetooth and more — to grade devices in Doji\'s trade-in flow. Published on the App Store and Google Play.',
 			},
 			'blue-saude': {
 				title: 'Blue Saúde',
@@ -139,6 +143,8 @@ export const projectsTranslations: ProjectsTranslations = {
 		viewDetails: 'Ver detalhes',
 		ariaLive: 'Ver projeto ao vivo',
 		ariaGithub: 'Ver código no GitHub',
+		viewAppStore: 'App Store',
+		viewPlayStore: 'Google Play',
 		data: {
 			'qualifica-bem': {
 				title: 'Qualifica Bem',
@@ -161,12 +167,12 @@ export const projectsTranslations: ProjectsTranslations = {
 				longDescription:
 					'Plataforma robusta unindo Next.js e Strapi. Permite gerenciamento de estoque em tempo real com ISR.',
 			},
-			'audit-log': {
-				title: 'Audit Log',
+			dojicheck: {
+				title: 'DojiCheck',
 				description:
-					'API centralizada para registro e monitoramento de eventos corporativos.',
+					'App mobile de diagnóstico automatizado de hardware para trade-in de aparelhos.',
 				longDescription:
-					'Serviço especializado em rastreabilidade de ações desenvolvido para garantir a integridade dos logs.',
+					'App React Native/Expo que guia o usuário por uma sequência de testes funcionais — biometria, sensor de proximidade, conector de carga, touch screen, saúde da bateria, Wi-Fi, Bluetooth e mais — para avaliar aparelhos no fluxo de trade-in da Doji. Publicado na App Store e no Google Play.',
 			},
 			'blue-saude': {
 				title: 'Blue Saúde',
